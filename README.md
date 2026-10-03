@@ -1,4 +1,20 @@
-# Sunsetless EWS: samples and issues
+<p align="center">
+  <a href="https://sunsetless.com">
+    <img alt="Sunsetless" src=".github/assets/logo.svg" width="314">
+  </a>
+</p>
+
+<h1 align="center">Sunsetless EWS: samples and issues</h1>
+
+<p align="center">
+  <a href="https://www.nuget.org/packages/Sunsetless.Ews"><img alt="NuGet" src="https://img.shields.io/nuget/v/Sunsetless.Ews?logo=nuget&label=NuGet&color=635BFF"></a>
+  <a href="https://www.nuget.org/packages/Sunsetless.Ews"><img alt=".NET Framework 4.8, .NET 8, 9 and 10" src="https://img.shields.io/badge/.NET-Framework%204.8%20%7C%208%20%7C%209%20%7C%2010-512BD4?logo=dotnet&logoColor=white"></a>
+  <a href="https://sunsetless.com/compatibility"><img alt="EWS Managed API 2.2 on Microsoft Graph" src="https://img.shields.io/badge/EWS%20Managed%20API%202.2-on%20Microsoft%20Graph-0078D4"></a>
+  <a href="https://sunsetless.com/compatibility"><img alt="Compatibility list" src="https://img.shields.io/badge/compatibility-list-2EA44F"></a>
+  <a href="https://sunsetless.com/trial"><img alt="Free trial key" src="https://img.shields.io/badge/trial%20key-free-F7931E"></a>
+  <a href="../../issues"><img alt="Open issues" src="https://img.shields.io/github/issues/sunset-less/sunsetless-ews-samples?logo=github&label=issues"></a>
+  <a href="LICENSE"><img alt="Samples: MIT" src="https://img.shields.io/badge/samples-MIT-lightgrey"></a>
+</p>
 
 [Sunsetless EWS](https://sunsetless.com) is a build of the EWS Managed API 2.2 that sends calls for Exchange Online to Microsoft Graph. Existing EWS code compiles against it without changes and keeps working after Microsoft retires EWS in Exchange Online. The package is [`Sunsetless.Ews` on NuGet.org](https://www.nuget.org/packages/Sunsetless.Ews).
 
