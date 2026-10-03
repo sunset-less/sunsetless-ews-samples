@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <!-- The package's dependencies need binding redirects on .NET Framework; this writes them to InboxSync.Net48.exe.config. -->
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Sunsetless.Ews" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.90.1" />
+  </ItemGroup>
+
+</Project>

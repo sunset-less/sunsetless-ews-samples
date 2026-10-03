@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Compatibility list
+    url: https://sunsetless.com/compatibility
+    about: Every supported EWS operation and every known difference from EWS.
+  - name: Licensing, purchases and private questions
+    url: https://sunsetless.com/pricing
+    about: Email contact@sunsetless.com for anything you would rather not post in public.
+  - name: Security vulnerabilities
+    url: https://sunsetless.com/security
+    about: Please report vulnerabilities by email, not in a public issue.

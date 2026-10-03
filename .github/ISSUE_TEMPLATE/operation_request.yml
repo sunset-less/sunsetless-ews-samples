@@ -1,0 +1,28 @@
+name: Missing operation
+description: Your application uses an EWS operation or property the package does not support yet.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check the [compatibility list](https://sunsetless.com/compatibility) first: some operations have no Microsoft Graph API at all, and the list says which.
+  - type: input
+    id: operation
+    attributes:
+      label: EWS operation or property
+      placeholder: GetUserConfiguration on a custom configuration object
+    validations:
+      required: true
+  - type: textarea
+    id: usage
+    attributes:
+      label: How your application uses it
+      description: What the application does with the result. This helps find a Graph call that gives the same outcome.
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Error you get today
+      description: The exception type, its message and ErrorCode, if there is one.
+      render: text

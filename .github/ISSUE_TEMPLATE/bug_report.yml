@@ -1,0 +1,62 @@
+name: Works differently from EWS
+description: A call fails or gives a different result than it did against EWS.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Issues are public. Leave out license keys, client secrets, access tokens and the contents of real mailboxes.
+        The [compatibility list](https://sunsetless.com/compatibility) names the differences already known.
+  - type: input
+    id: version
+    attributes:
+      label: Sunsetless.Ews version
+      placeholder: 1.1.0
+    validations:
+      required: true
+  - type: dropdown
+    id: framework
+    attributes:
+      label: Target framework
+      options:
+        - .NET Framework 4.8
+        - .NET 8
+        - .NET 9
+        - .NET 10
+        - Other (say below)
+    validations:
+      required: true
+  - type: input
+    id: operation
+    attributes:
+      label: EWS operation
+      description: The Managed API call and the ExchangeVersion you pass to ExchangeService.
+      placeholder: FindItems with a SearchFilter, ExchangeVersion.Exchange2013_SP1
+    validations:
+      required: true
+  - type: textarea
+    id: happened
+    attributes:
+      label: What happened
+      description: The exception type, its message and ErrorCode, or the wrong result.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What EWS does
+      description: What the same call returned against EWS. With `SUNSETLESS_DISABLED=1` the package calls EWS again, as long as EWS is still on in your tenant.
+  - type: textarea
+    id: code
+    attributes:
+      label: Code
+      description: The shortest code that shows it.
+      render: csharp
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Before posting
+      options:
+        - label: I removed license keys, secrets, tokens and mailbox contents from this issue.
+          required: true
