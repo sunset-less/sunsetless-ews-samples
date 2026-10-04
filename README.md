@@ -8,6 +8,7 @@
 
 <p align="center">
   <a href="https://www.nuget.org/packages/Sunsetless.Ews"><img alt="NuGet" src="https://img.shields.io/nuget/v/Sunsetless.Ews?logo=nuget&label=NuGet&color=635BFF"></a>
+  <a href="https://www.nuget.org/packages/Sunsetless.Ews.NETStandard"><img alt="NuGet: Sunsetless.Ews.NETStandard" src="https://img.shields.io/nuget/v/Sunsetless.Ews.NETStandard?logo=nuget&label=NuGet%20.NETStandard&color=635BFF"></a>
   <a href="https://www.nuget.org/packages/Sunsetless.Ews"><img alt=".NET Framework 4.8, .NET 8, 9 and 10" src="https://img.shields.io/badge/.NET-Framework%204.8%20%7C%208%20%7C%209%20%7C%2010-512BD4?logo=dotnet&logoColor=white"></a>
   <a href="https://sunsetless.com/compatibility"><img alt="EWS Managed API 2.2 on Microsoft Graph" src="https://img.shields.io/badge/EWS%20Managed%20API%202.2-on%20Microsoft%20Graph-0078D4"></a>
   <a href="https://sunsetless.com/compatibility"><img alt="Compatibility list" src="https://img.shields.io/badge/compatibility-list-2EA44F"></a>
@@ -16,15 +17,18 @@
   <a href="LICENSE"><img alt="Samples: MIT" src="https://img.shields.io/badge/samples-MIT-lightgrey"></a>
 </p>
 
-[Sunsetless EWS](https://sunsetless.com) is a build of the EWS Managed API 2.2 that sends calls for Exchange Online to Microsoft Graph. Existing EWS code compiles against it without changes and keeps working after Microsoft retires EWS in Exchange Online. The package is [`Sunsetless.Ews` on NuGet.org](https://www.nuget.org/packages/Sunsetless.Ews).
+[Sunsetless EWS](https://sunsetless.com) is a build of the EWS Managed API 2.2 that sends calls for Exchange Online to Microsoft Graph. Existing EWS code compiles against it without changes and keeps working after Microsoft retires EWS in Exchange Online. It comes as two packages on NuGet.org:
+
+- [`Sunsetless.Ews`](https://www.nuget.org/packages/Sunsetless.Ews) for applications on Microsoft's `Microsoft.Exchange.WebServices` 2.2;
+- [`Sunsetless.Ews.NETStandard`](https://www.nuget.org/packages/Sunsetless.Ews.NETStandard) for applications on the async .NET Standard port, `Microsoft.Exchange.WebServices.NETStandard` 1.1.x.
 
 This repository holds:
 
-- two runnable samples, one for .NET 8 and one for .NET Framework 4.8;
+- three runnable samples: two on `Sunsetless.Ews` (.NET 8 and .NET Framework 4.8) and one on `Sunsetless.Ews.NETStandard` (.NET 8, async);
 - [a table of EWS operations, the Microsoft Graph calls behind them, and what behaves differently](docs/ews-to-graph.md);
 - the public issue tracker for the package.
 
-The library's own source code is not here. The package is commercial software; its license is in the package.
+The library's own source code is not here. The packages are commercial software; the license is in each package.
 
 Sunsetless is independent and not affiliated with, endorsed by or sponsored by Microsoft.
 
@@ -35,6 +39,13 @@ Sunsetless is independent and not affiliated with, endorsed by or sponsored by M
    ```
    dotnet remove package Microsoft.Exchange.WebServices
    dotnet add package Sunsetless.Ews
+   ```
+
+   An application on the async .NET Standard port replaces that package instead:
+
+   ```
+   dotnet remove package Microsoft.Exchange.WebServices.NETStandard
+   dotnet add package Sunsetless.Ews.NETStandard
    ```
 
 2. In Microsoft Entra, use an app registration with Microsoft Graph **application** permissions, for example `Mail.ReadWrite` and `Calendars.ReadWrite` for these samples, and grant admin consent. The [package README](https://www.nuget.org/packages/Sunsetless.Ews#readme-body-tab) lists the permission each part of the API needs.
@@ -54,12 +65,13 @@ More in [Getting started](https://sunsetless.com/docs/getting-started).
 
 ## Samples
 
-Both samples are ordinary EWS Managed API programs. Nothing in their code refers to Sunsetless: they get an OAuth token for EWS with MSAL the way existing applications do, and the package routes their calls to Microsoft Graph.
+All three samples are ordinary EWS Managed API programs. Nothing in their code refers to Sunsetless: they get an OAuth token for EWS with MSAL the way existing applications do, and the package routes their calls to Microsoft Graph.
 
 | Sample | What it shows |
 |---|---|
 | [MailAndCalendar.Net8](samples/MailAndCalendar.Net8) | .NET 8: newest Inbox messages, a search filter with a two-level sort order, the calendar for the next week, and a draft that is saved, read back, changed and deleted |
 | [InboxSync.Net48](samples/InboxSync.Net48) | .NET Framework 4.8: incremental Inbox synchronization with a stored `SyncState`, including what to do with a sync state saved while the application still used EWS |
+| [NETStandardPort.Net8](samples/NETStandardPort.Net8) | `Sunsetless.Ews.NETStandard` on .NET 8: the async API of the .NET Standard port, three folders read at the same time, the calendar for the next week, and a draft with a file attachment that is saved, read back and deleted |
 
 To run one, set the four `SUNSETLESS_*` variables above and these:
 
@@ -75,7 +87,7 @@ Then:
 dotnet run --project samples/MailAndCalendar.Net8
 ```
 
-The MailAndCalendar sample creates one draft in the mailbox and deletes it. The InboxSync sample only reads.
+The MailAndCalendar and NETStandardPort samples each create one draft in the mailbox and delete it. The InboxSync sample only reads.
 
 ## Reporting an issue
 
@@ -93,4 +105,4 @@ For licensing, purchases or anything you would rather not post in public, email 
 
 ## License
 
-The samples and documents in this repository are under the [MIT License](LICENSE). The `Sunsetless.Ews` package they reference has its own commercial license.
+The samples and documents in this repository are under the [MIT License](LICENSE). The `Sunsetless.Ews` and `Sunsetless.Ews.NETStandard` packages they reference have their own commercial license.

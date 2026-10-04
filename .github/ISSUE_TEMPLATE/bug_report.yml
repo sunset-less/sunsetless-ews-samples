@@ -7,10 +7,19 @@ body:
       value: |
         Issues are public. Leave out license keys, client secrets, access tokens and the contents of real mailboxes.
         The [compatibility list](https://sunsetless.com/compatibility) names the differences already known.
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      options:
+        - Sunsetless.Ews
+        - Sunsetless.Ews.NETStandard
+    validations:
+      required: true
   - type: input
     id: version
     attributes:
-      label: Sunsetless.Ews version
+      label: Package version
       placeholder: 1.1.0
     validations:
       required: true
@@ -19,6 +28,7 @@ body:
     attributes:
       label: Target framework
       options:
+        - .NET Framework 4.6.2 to 4.7.2
         - .NET Framework 4.8
         - .NET 8
         - .NET 9
