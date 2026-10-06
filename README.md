@@ -29,6 +29,8 @@ This repository holds:
 - [`Find-EwsApps.ps1`](scripts/Find-EwsApps.ps1), a script for administrators that lists the applications that use EWS in a tenant or hold access to it ([how to read its output](https://sunsetless.com/guides/find-apps-using-ews));
 - the public issue tracker for the package.
 
+To see which EWS operations a compiled application calls, run our free tool [ews-scan](https://github.com/sunset-less/ews-scan) (MIT) on its folder: `dotnet tool install --global Sunsetless.EwsScan`.
+
 The library's own source code is not here. The packages are commercial software; the license is in each package.
 
 Sunsetless is independent and not affiliated with, endorsed by or sponsored by Microsoft.
