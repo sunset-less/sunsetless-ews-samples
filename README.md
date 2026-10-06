@@ -24,8 +24,9 @@
 
 This repository holds:
 
-- three runnable samples: two on `Sunsetless.Ews` (.NET 8 and .NET Framework 4.8) and one on `Sunsetless.Ews.NETStandard` (.NET 8, async);
+- four runnable samples: three on `Sunsetless.Ews` (.NET 8 and .NET Framework 4.8) and one on `Sunsetless.Ews.NETStandard` (.NET 8, async);
 - [a table of EWS operations, the Microsoft Graph calls behind them, and what behaves differently](docs/ews-to-graph.md);
+- [`Find-EwsApps.ps1`](scripts/Find-EwsApps.ps1), a script for administrators that lists the applications that use EWS in a tenant or hold access to it ([how to read its output](https://sunsetless.com/guides/find-apps-using-ews));
 - the public issue tracker for the package.
 
 The library's own source code is not here. The packages are commercial software; the license is in each package.
@@ -65,12 +66,13 @@ More in [Getting started](https://sunsetless.com/docs/getting-started).
 
 ## Samples
 
-All three samples are ordinary EWS Managed API programs. Nothing in their code refers to Sunsetless: they get an OAuth token for EWS with MSAL the way existing applications do, and the package routes their calls to Microsoft Graph.
+The first three samples are ordinary EWS Managed API programs. Nothing in their code refers to Sunsetless: they get an OAuth token for EWS with MSAL the way existing applications do, and the package routes their calls to Microsoft Graph. ManyTenants.Net8 adds one call, for a process that works for several tenants.
 
 | Sample | What it shows |
 |---|---|
 | [MailAndCalendar.Net8](samples/MailAndCalendar.Net8) | .NET 8: newest Inbox messages, a search filter with a two-level sort order, the calendar for the next week, and a draft that is saved, read back, changed and deleted |
 | [InboxSync.Net48](samples/InboxSync.Net48) | .NET Framework 4.8: incremental Inbox synchronization with a stored `SyncState`, including what to do with a sync state saved while the application still used EWS |
+| [ManyTenants.Net8](samples/ManyTenants.Net8) | .NET 8: one process for several customers, each with its own Microsoft 365 tenant. Every `ExchangeService` gets its customer's tenant with `SunsetlessEws.Configure(service, options)`, and services of the same tenant share one sign-in. It has its own settings, listed in its README |
 | [NETStandardPort.Net8](samples/NETStandardPort.Net8) | `Sunsetless.Ews.NETStandard` on .NET 8: the async API of the .NET Standard port, three folders read at the same time, the calendar for the next week, and a draft with a file attachment that is saved, read back and deleted |
 
 To run one, set the four `SUNSETLESS_*` variables above and these:
@@ -105,4 +107,4 @@ For licensing, purchases or anything you would rather not post in public, email 
 
 ## License
 
-The samples and documents in this repository are under the [MIT License](LICENSE). The `Sunsetless.Ews` and `Sunsetless.Ews.NETStandard` packages they reference have their own commercial license.
+The samples, scripts and documents in this repository are under the [MIT License](LICENSE). The `Sunsetless.Ews` and `Sunsetless.Ews.NETStandard` packages they reference have their own commercial license.
