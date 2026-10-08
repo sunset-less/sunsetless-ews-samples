@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>Contoso.MailComponent</AssemblyName>
+    <RootNamespace>Contoso.MailComponent</RootNamespace>
+  </PropertyGroup>
+
+  <!-- A component license key names the strong-name public key token of the component; sign with the key the license was issued for. -->
+  <PropertyGroup Condition="Exists('Contoso.MailComponent.snk')">
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Contoso.MailComponent.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Sunsetless.Ews" Version="2.0.0" />
+  </ItemGroup>
+
+</Project>
