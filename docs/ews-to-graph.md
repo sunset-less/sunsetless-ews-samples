@@ -76,7 +76,7 @@ Checked against Exchange Online and Microsoft's documentation in October 2026. M
 - Public folders and their items.
 - Microsoft 365 group mailboxes as mailboxes; groups have conversation, thread and calendar APIs of their own.
 - Discovery mailboxes.
-- Online archives are not in v1.0; Microsoft's roadmap lists them for the end of 2026.
+- Online archives are not documented in v1.0 yet; Microsoft's roadmap lists them for the end of 2026.
 
 The roadmap is on Microsoft's [EWS retirement page](https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/deprecation-of-ews-exchange-online). A longer explanation of these differences: [What changes when EWS Managed API code moves to Microsoft Graph](https://sunsetless.com/guides/ews-to-graph-differences).
 
